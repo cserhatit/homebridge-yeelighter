@@ -37,8 +37,8 @@ export const EMPTY_DEVICEINFO: DeviceInfo = {
   rgb: "string",
   hue: 0,
   sat: 0,
-  host: "string",
-  port: 0,
+  host: "192.168.6.22",
+  port: 55443,
   debug: false,
   trackedAttributes: [],
   fw_ver: "0,0.0",
@@ -74,7 +74,7 @@ export class Device extends EventEmitter {
       this.forceDisconnect = false;
       this.socket = new net.Socket({ allowHalfOpen: false });
       this.bindSocket();
-      this.socket.connect({ host: this.info.host, port: this.info.port }, () => {
+      this.socket.connect({ host: "192.168.6.22", port: 55443 }, () => {
         this.didConnect();
         this.emit("connected");
       });
